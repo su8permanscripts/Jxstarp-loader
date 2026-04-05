@@ -1,0 +1,52 @@
+-- Jxstarp Multi-Game Loader (Spelling Bee + Arcade BB + Football Fusion 3)
+-- One script for all three games
+
+local PlaceId = game.PlaceId
+
+-- ===================== SPELLING BEE =====================
+local spellingBeeIds = {
+    17590362521, 83091000527113, 17707569217, 
+    91692552632068, 133419989757748, 70718852079605, 
+    115840692772844, 135159688166294, 74779072921656
+}
+
+for _, id in ipairs(spellingBeeIds) do
+    if PlaceId == id then
+        print("Jxstarp 2.1 - Detected Spelling Bee | Loading custom auto-typer...")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/su8permanscripts/Jxstarp-2.1-spelling-bee/refs/heads/main/Spellingbee", true))()
+        return  -- Stop after loading the correct script
+    end
+end
+
+-- ===================== ARCADE BASKETBALL =====================
+-- Add any Arcade Basketball PlaceIds you know (common ones below)
+local arcadeBasketballIds = {
+    134558434771720,  -- Main Arcade Basketball
+    11780225264       -- Arcade Basketball [ALPHA] (if you use this one)
+}
+
+for _, id in ipairs(arcadeBasketballIds) do
+    if PlaceId == id then
+        print("Jxstarp - Detected Arcade Basketball | Loading script...")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/su8permanscripts/jxstarp-arcade-bb/refs/heads/main/jxstarp%20arcade%20bb", true))()
+        return
+    end
+end
+
+-- ===================== FOOTBALL FUSION 3 =====================
+-- Main game + any practice / pro servers usually share the same PlaceId
+local footballFusionIds = {
+    82866880824588,   -- Main Football Fusion 3
+    7184600262        -- Older / alternative FF3 link (in case you use it)
+}
+
+for _, id in ipairs(footballFusionIds) do
+    if PlaceId == id then
+        print("Jxstarp - Detected Football Fusion 3 | Loading script...")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/su8permanscripts/jxstarp/refs/heads/main/jxstarp", true))()
+        return
+    end
+end
+
+-- If none of the above matched
+warn("Jxstarp Multi-Loader: Game not recognized (PlaceId: " .. PlaceId .. ")")
